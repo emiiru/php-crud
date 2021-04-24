@@ -370,7 +370,7 @@ if(empty($_SESSION['user_name'])){
                                 item_description='$item_description'
                                 WHERE id='$edit_item_id' ";
                             if ($conn->query($sql) === TRUE) {
-                                echo '<script>window.location.href="inventory.php"</script>';
+                                echo '<script>window.location.href="index.php"</script>';
                             } else {
                                 echo "Error updating record: " . $conn->error;
                             }
@@ -384,7 +384,7 @@ if(empty($_SESSION['user_name'])){
                                 $sql = "DELETE FROM tbl_inventory WHERE id='$delete_id' ";
                                 if ($conn->query($sql) === TRUE) {
                                     $sql = "DELETE FROM tbl_inventory WHERE id='$delete_id' ";
-                                    echo '<script>window.location.href="inventory.php"</script>';
+                                    echo '<script>window.location.href="index.php"</script>';
                                 } else {
                                     echo "Error deleting record: " . $conn->error;
                                 }
@@ -405,7 +405,7 @@ if(empty($_SESSION['user_name'])){
                             $add_inventory_query = "INSERT INTO tbl_inventory(item_name,item_code,date,qty)VALUES ('$item_name','$item_code','$date','0')";
 
                             if ($conn->query($add_inventory_query) === TRUE) {
-                                echo '<script>window.location.href="inventory.php"</script>';
+                                echo '<script>window.location.href="index.php"</script>';
                             } else {
                                 echo "Error: " . $sql . "<br>" . $conn->error;
                             }
@@ -422,7 +422,7 @@ if(empty($_SESSION['user_name'])){
                         if ($conn->query($sql) === TRUE) {
                             $add_inv = "UPDATE tbl_inventory SET qty=(qty + '$quantity') WHERE id='$add_stocks_id' ";
                             if ($conn->query($add_inv) === TRUE) {
-                                echo '<script>window.location.href="inventory.php"</script>';
+                                echo '<script>window.location.href="index.php"</script>';
                             } else {
                                 echo "Error updating record: " . $conn->error;
                             }
@@ -439,7 +439,7 @@ if(empty($_SESSION['user_name'])){
                         if ($conn->query($sql) === TRUE) {
                             $add_inv = "UPDATE tbl_inventory SET qty=(qty - '$quantity') WHERE id='$minus_stocks_id' ";
                             if ($conn->query($add_inv) === TRUE) {
-                                echo '<script>window.location.href="inventory.php"</script>';
+                                echo '<script>window.location.href="index.php"</script>';
                             } else {
                                 echo "Error updating record: " . $conn->error;
                             }
