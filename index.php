@@ -8,6 +8,7 @@ if(empty($_SESSION['user_name'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>CRUD</title>
     <meta charset="utf-8">
@@ -162,8 +163,8 @@ if(empty($_SESSION['user_name'])){
                                         <br>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary" name="add_inventory"><span class="glyphicon glyphicon-plus"></span> Add</button>
                                         <button type="button" class="btn btn-warning" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span> Cancel</button>
+                                        <button type="submit" class="btn btn-primary" name="add_inventory"><span class="glyphicon glyphicon-plus"></span> Add</button>
                                     </div>
                                 </form>
                             </div>
@@ -213,8 +214,8 @@ if(empty($_SESSION['user_name'])){
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary" name="minus_inventory"><span class="glyphicon glyphicon-plus"></span> Out</button>
                                         <button type="button" class="btn btn-warning" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span> Cancel</button>
+                                        <button type="submit" class="btn btn-primary" name="minus_inventory"><span class="glyphicon glyphicon-plus"></span> Out</button>
                                     </div>
                                 </div>
                             </form>
@@ -260,7 +261,7 @@ if(empty($_SESSION['user_name'])){
                     <!--Edit Item Modal -->
                     <div id="edit<?php echo $id; ?>" class="modal fade" role="dialog">
                         <form method="post" class="form-horizontal" role="form">
-                            <div class="modal-dialog modal-lg">
+                            <div class="modal-dialog modal-sm">
                                 <!-- Modal content-->
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -270,31 +271,27 @@ if(empty($_SESSION['user_name'])){
                                     <div class="modal-body">
                                         <input type="hidden" name="edit_item_id" value="<?php echo $id; ?>">
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2" for="item_name">Item Name:</label>
-                                            <div class="col-sm-4">
-                                                <input type="text" class="form-control" id="item_name" name="item_name" value="<?php echo $item_name; ?>" placeholder="Item Name" required autofocus>
-                                            </div>
-                                            <label class="control-label col-sm-2" for="item_code">Item Code:</label>
-                                            <div class="col-sm-4">
-                                                <input type="text" readonly class="form-control" id="item_code" name="item_code" value="<?php echo $item_code; ?>" placeholder="Item Code" required>
-                                            </div>
+                                            <label for="item_code">Item Code:</label>
+                                            <input type="text" readonly class="form-control" id="item_code" name="item_code" value="<?php echo $item_code; ?>" placeholder="Item Code" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="item_name">Item Name:</label>
+                                            <input type="text" class="form-control" id="item_name" name="item_name" value="<?php echo $item_name; ?>" placeholder="Item Name" required autofocus>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="item_description">Description:</label>
+                                            <textarea class="form-control" id="item_description" name="item_description" placeholder="Description" required><?php echo $item_description; ?></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2" for="item_description">Description:</label>
-                                            <div class="col-sm-4">
-                                                <textarea cclass="form-control" id="item_description" name="item_description" placeholder="Description" required style="width: 100%;">
-                                                            <?php echo $item_description; ?>
-                                                        </textarea>
-                                            </div>
-                                            <label class="control-label col-sm-2" for="item_category">Category:</label>
-                                            <div class="col-sm-4">
-                                                <input type="text" class="form-control" id="item_category" name="item_category" value="<?php echo $item_category; ?>" placeholder="Category" required>
-                                            </div>
+                                            <label for="item_category">Category:</label>
+                                            <input type="text" class="form-control" id="item_category" name="item_category" value="<?php echo $item_category; ?>" placeholder="Category" required>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="submit" class="btn btn-primary" name="update_item"><span class="glyphicon glyphicon-edit"></span> Edit</button>
                                         <button type="button" class="btn btn-warning" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span> Cancel</button>
+                                        <button type="submit" class="btn btn-primary" name="update_item"><span class="glyphicon glyphicon-edit"></span> Update</button>
                                     </div>
                                 </div>
                             </div>
@@ -315,8 +312,8 @@ if(empty($_SESSION['user_name'])){
                                         <div class="alert alert-danger">Are you Sure you want Delete <strong>
                                                 <?php echo $item_name; ?>?</strong> </div>
                                         <div class="modal-footer">
-                                            <button type="submit" name="delete" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> YES</button>
                                             <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle"></span> NO</button>
+                                            <button type="submit" name="delete" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> YES</button>
                                         </div>
                                     </div>
                                 </div>
@@ -529,6 +526,7 @@ if(empty($_SESSION['user_name'])){
         $(document).ready(function() {
             $('#example').DataTable({});
         });
+
     </script>
 </body>
 
